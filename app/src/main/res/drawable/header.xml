@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Frame 9 -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/frame_9"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/frame_9"
+        />
+
+
+    <!-- drawable/frame_9.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="375dp"
+        android:height="174dp"
+        android:viewportWidth="375"
+        android:viewportHeight="174"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H375V174H0V0Z"
+                />
+
+        </group>
+
+    </vector>
+
+</selector>
