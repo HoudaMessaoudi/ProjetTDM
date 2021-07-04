@@ -5,30 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.projettdm.traitement.TraitementAdapterval
 import com.example.projettdm.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.projettdm.data.Traitement
+import com.example.projettdm.retrofit.RetrofitService
 
-/**
- * A simple [Fragment] subclass.
- * Use the [listTraitementsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import kotlinx.android.synthetic.main.fragment_list_traitements.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+
 class listTraitementsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private fun getTraitement() {
+        val call = RetrofitService.endpoint.gettraitement()
+        call.enqueue(object: Callback<List<Traitement>> {
+            override fun onResponse(call: Call<List<Traitement>>, response: Response<List<Traitement>>) {
+                val data = response.body()
+                if (response.isSuccessful){
+                    if (data!=null){
+                        progressBar1.visibility = View.INVISIBLE
+
+
+                        abdou.setLayoutManager(LinearLayoutManager(this@listTraitementsFragment.activity));
+                        abdou.setAdapter(TraitementAdapterval(requireContext(),data));
+                        /*for(item in data){
+                            Toast.makeText(this@MainActivity,item.nom ,Toast.LENGTH_SHORT).show()
+                        }*/
+                    }
+                }
+                else{
+                    // progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(requireActivity(),"Erreur 1" , Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Traitement>>, t: Throwable) {
+                Toast.makeText(requireActivity(),t.toString() , Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +61,11 @@ class listTraitementsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_list_traitements, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment listTraitementsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            listTraitementsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        progressBar1.visibility = View.VISIBLE
+        getTraitement()
+
     }
 }

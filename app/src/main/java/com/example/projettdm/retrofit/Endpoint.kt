@@ -2,6 +2,7 @@ package com.example.projettdm.retrofit
 
 import com.example.projettdm.data.Conseil
 import com.example.projettdm.data.Medecin
+import com.example.projettdm.data.Traitement
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,5 +19,6 @@ interface Endpoint {
     @GET("api/medecin")
     fun getmedecin():Call<List<Medecin>>
 
-
+    @GET("api/traitement")
+    fun gettraitement():Call<List<Traitement>>
 }

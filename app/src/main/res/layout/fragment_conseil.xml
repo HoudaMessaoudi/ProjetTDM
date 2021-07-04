@@ -76,15 +76,14 @@
         android:id="@+id/button4"
         android:layout_width="293dp"
         android:layout_height="45dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
         android:layout_marginTop="44dp"
         android:width="200dp"
         android:background="@drawable/gredient_radial"
         android:text="Reserver un rendez-vous"
         android:textColor="#FFFF"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/numeroTele"
+        app:layout_constraintStart_toStartOf="@+id/numeroTele"
         app:layout_constraintTop_toBottomOf="@+id/numeroTele" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
