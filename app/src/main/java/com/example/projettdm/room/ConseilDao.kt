@@ -12,7 +12,7 @@ interface ConseilDao {
     @Query("select * from conseil")
     fun getConseils(): List<Conseil>
 
-    @Query("select * from conseil where isSynchronized=0")
+    @Query("select * from conseil where isSynchronized='false'")
     fun getConseilsToSynchronize():List<Conseil>
 
     @Insert

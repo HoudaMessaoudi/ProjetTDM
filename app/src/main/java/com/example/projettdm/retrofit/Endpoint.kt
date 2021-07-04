@@ -12,7 +12,7 @@ interface Endpoint {
     @POST("api/conseil")
     fun addconseil(@Body conseil: Conseil):Call<String>
 
-    @POST("addconseils")
+    @POST("api/conseil/mult")
     fun addconseils(@Body conseil: List<Conseil>):Call<String>
 
     @GET("api/medecin")
