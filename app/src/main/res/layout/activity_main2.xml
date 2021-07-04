@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/num"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/textView9" app:layout_constraintStart_toStartOf="@+id/prenom"
+            app:layout_constraintTop_toTopOf="@+id/nomDoc" app:layout_constraintStart_toStartOf="@+id/prenom"
     />
     <TextView
             android:text="TextView"
@@ -44,21 +44,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/spec"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/textView10" app:layout_constraintStart_toStartOf="@+id/num"
+            app:layout_constraintTop_toTopOf="@+id/numDoc" app:layout_constraintStart_toStartOf="@+id/num"
     />
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fb"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/textView11"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/specDoc"
             app:layout_constraintStart_toStartOf="@+id/spec"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/year"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/textView12"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/prenomDoc"
             app:layout_constraintStart_toStartOf="@+id/fb"/>
     <TextView
             android:text="Nom: "
@@ -77,7 +77,7 @@
             android:text="Numéro de téléphone: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView9" android:layout_marginTop="8dp"
+            android:id="@+id/nomDoc" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView8" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp" />
@@ -85,24 +85,24 @@
             android:text="Spécialité"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView10" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/numDoc" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/nomDoc"
         android:layout_marginLeft="32dp" />
     <TextView
             android:text="Page Facebook: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView11" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/specDoc" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/numDoc"
         android:layout_marginLeft="32dp" />
     <TextView
             android:text="Années d'expérience: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView12" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/prenomDoc" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/specDoc"
         android:layout_marginLeft="32dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

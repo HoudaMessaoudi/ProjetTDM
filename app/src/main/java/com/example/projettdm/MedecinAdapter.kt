@@ -1,4 +1,4 @@
-package com.example.exo4
+package com.example.projettdm
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projettdm.Activity_test
 import com.example.projettdm.R
 import com.example.projettdm.data.Medecin
+import com.example.projettdm.medecin.medecinActivity
 
 class MyAdapter(val context: Context, var data:List<Medecin>): RecyclerView.Adapter<MyViewHolder>()
 {
@@ -26,17 +27,17 @@ class MyAdapter(val context: Context, var data:List<Medecin>): RecyclerView.Adap
         holder.nom.text = data[position].nom
         holder.prenom.text = data[position].prenom
         holder.num.text = data[position].num.toString()
-        holder.spec.text = data[position].Speciality
+        holder.spec.text = data[position].speciality
         //Glide.with(context).load("http://ea8f8823bbb4.ngrok.io/"+data[position].image).into(holder.img)
         //holder.img.setImageResource(data[position].img)
         holder.itemView.setOnClickListener{
-            val intent = Intent(context, Activity_test::class.java)
+            val intent = Intent(context, medecinActivity::class.java)
             intent.putExtra("Medecin",data[position])
             context.startActivity(intent)
         }
         holder.num.setOnClickListener{
             val n= data[position].num.toString()
-            val uri= Uri.parse("tel:0$n")
+            val uri= Uri.parse("tel:$n")
             val intent= Intent(Intent.ACTION_DIAL, uri)
             if (intent.resolveActivity(context.packageManager)!=null){
                 context.startActivity(intent)

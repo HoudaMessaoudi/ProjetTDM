@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.projettdm.room.RoomService
 import com.example.projettdm.room.RoomService.context
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         RoomService.context=this
-        val loginButton = findViewById(R.id.seConnecter) as Button
+        val loginButton = findViewById(R.id.conseil) as Button
         val num = findViewById(R.id.numeroTele) as EditText
         val password = findViewById(R.id.motDePass) as EditText
         loginButton.setOnClickListener {

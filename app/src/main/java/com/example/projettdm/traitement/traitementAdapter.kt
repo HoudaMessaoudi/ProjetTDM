@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.projettdm.Data.Traitement
+import com.example.projettdm.data.Traitement
 import com.example.projettdm.R
 
 
@@ -28,10 +28,10 @@ class TraitementAdapter(val context: Context, var data:List<Traitement>): Recycl
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.nom.text = data[position].nom
+       /* holder.nom.text = data[position].nom
         holder.dure.text=data[position].dure
         holder.fois.text=data[position].fois
-
+*/
 
 
     }
