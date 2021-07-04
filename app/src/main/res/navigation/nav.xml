@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/medecinFragment">
 
+    <fragment
+        android:id="@+id/conseilFragment"
+        android:name="com.example.projettdm.conseil.conseilFragment"
+        android:label="fragment_conseil"
+        tools:layout="@layout/fragment_conseil" />
+    <fragment
+        android:id="@+id/medecinFragment"
+        android:name="com.example.projettdm.medecin.medecinFragment"
+        android:label="fragment_medecin"
+        tools:layout="@layout/fragment_medecin" >
+        <action
+            android:id="@+id/action_medecinFragment_to_conseilFragment"
+            app:destination="@id/conseilFragment" />
+        <action
+            android:id="@+id/action_medecinFragment_to_randezVousFragment"
+            app:destination="@id/randezVousFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/randezVousFragment"
+        android:name="com.example.projettdm.medecin.randezVousFragment"
+        android:label="fragment_randez_vous"
+        tools:layout="@layout/fragment_randez_vous" />
 </navigation>

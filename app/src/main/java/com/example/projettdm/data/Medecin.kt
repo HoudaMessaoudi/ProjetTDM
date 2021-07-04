@@ -9,7 +9,7 @@ data class Medecin (val _id:String,
                     val prenom:String,
                     val num:String,
                     val password:String,
-                    val Speciality:String,
+                    val speciality:String,
                     val coor_longitude : Float,
                     val coor_lattitude : Float,
                     val picture:String):Serializable {
