@@ -42,15 +42,15 @@ class MyAdapter(val context: Context, var data:List<Medecin>): RecyclerView.Adap
             if (intent.resolveActivity(context.packageManager)!=null){
                 context.startActivity(intent)
             }
-        holder.map.setOnClickListener{
-            val latitude=46.414382
-            val longitude=10.013988
-            val geoLocation = Uri.parse("geo:$latitude,$longitude")
-            val intent = Intent(Intent.ACTION_VIEW,geoLocation)
-            if (intent.resolveActivity(context.packageManager)!=null){
-                context.startActivity(intent)
+            holder.map.setOnClickListener{
+                val latitude=46.414382
+                val longitude=10.013988
+                val geoLocation = Uri.parse("geo:$latitude,$longitude")
+                val intent = Intent(Intent.ACTION_VIEW,geoLocation)
+                if (intent.resolveActivity(context.packageManager)!=null){
+                    context.startActivity(intent)
+                }
             }
-        }
         }
 
 

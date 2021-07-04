@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.projettdm.R
 import com.example.projettdm.data.Medecin
 import com.example.projettdm.data.MedecinModel
@@ -49,5 +51,16 @@ class medecinFragment : Fragment() {
                 this.startActivity(intent)
             }
         }
+        conseil.setOnClickListener{
+            v->
+
+            v.findNavController().navigate(R.id.action_medecinFragment_to_conseilFragment)
+        }
+        rendezVous.setOnClickListener{
+                v->
+
+            v.findNavController().navigate(R.id.action_medecinFragment_to_randezVousFragment)
+        }
+
     }
 }
