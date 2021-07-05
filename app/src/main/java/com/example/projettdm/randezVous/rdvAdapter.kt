@@ -15,15 +15,15 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 
-class rdvAdapter (context: Context, var data:List<RandezVous>): RecyclerView.Adapter<MyViewHolder>() {
-    private val context: Context? = null
+class rdvAdapter (val context: Context, var data:List<RandezVous>): RecyclerView.Adapter<MyViewHolder>() {
+
 
     @SuppressLint("RestrictedApi")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(parent.getContext()).inflate(R.layout.randezvousitem, parent, false)
         )
-    this.context=parent.getContext()
+
     }
     override fun getItemCount() = data.size
 
@@ -32,7 +32,7 @@ class rdvAdapter (context: Context, var data:List<RandezVous>): RecyclerView.Ada
         holder.nom.text = data[position].nom_medecin+" "+data[position].prenom_medecin
 
         holder.itemView.setOnClickListener{
-            val intent = Intent(this.context, rdvDetailsActivity::class.java)
+            val intent = Intent(context, rdvDetailsActivity::class.java)
             intent.putExtra("RandezVous",data[position])
             this.context?.startActivity(intent)
         }
