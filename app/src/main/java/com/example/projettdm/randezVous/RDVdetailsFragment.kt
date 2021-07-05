@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.projettdm.R
-import com.google.zxing.BarcodeFormat
+/*import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
-import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.journeyapps.barcodescanner.BarcodeEncoder*/
 import kotlinx.android.synthetic.main.fragment_r_d_vdetails.*
 
 
@@ -25,7 +25,7 @@ class RDVdetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val multiFormatWriter = MultiFormatWriter()
+        /*val multiFormatWriter = MultiFormatWriter()
         try{
             var bitMatrix = multiFormatWriter.encode("editText.getText().toString()",
                 BarcodeFormat.QR_CODE,500,500);
@@ -35,7 +35,7 @@ class RDVdetailsFragment : Fragment() {
 
         }catch(e: Exception){
             e.printStackTrace();
-        }
+        }*/
     }
 
 
