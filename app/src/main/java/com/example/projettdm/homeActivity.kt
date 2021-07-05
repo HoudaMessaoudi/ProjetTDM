@@ -1,10 +1,10 @@
 package com.example.projettdm
 
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projettdm.adapters.ViewPagerAdapter
@@ -19,13 +19,15 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        val pref = getSharedPreferences("db", Context.MODE_PRIVATE)
+        val editor = pref.edit()
         setUpTabs()
 
 
 
 
 
-        mAddAlarmFab.setVisibility(View.INVISIBLE);
+        logout.setVisibility(View.INVISIBLE);
         mAddPersonFab.setVisibility(View.INVISIBLE);
         addAlarmActionText.setVisibility(View.INVISIBLE);
         addPersonActionText.setVisibility(View.INVISIBLE);
@@ -34,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
         mAddFab.setOnClickListener {
             if (!isAllFabsVisible) {
 
-                mAddAlarmFab.visibility = View.VISIBLE
+                logout.visibility = View.VISIBLE
                 mAddPersonFab.visibility = View.VISIBLE
                 addAlarmActionText.visibility = View.VISIBLE
                 addPersonActionText.visibility = View.VISIBLE
@@ -42,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
                 isAllFabsVisible = true
             } else {
 
-                mAddAlarmFab.visibility = View.INVISIBLE
+                logout.visibility = View.INVISIBLE
                 mAddPersonFab.visibility = View.INVISIBLE
                 addAlarmActionText.visibility = View.INVISIBLE
                 addPersonActionText.visibility = View.INVISIBLE
@@ -52,17 +54,24 @@ class HomeActivity : AppCompatActivity() {
         }
 
         mAddPersonFab.setOnClickListener {
+
             Toast.makeText(
                 this@HomeActivity, "Profile picked",
                 Toast.LENGTH_SHORT
             ).show()
         }
 
-        mAddAlarmFab.setOnClickListener {
-            Toast.makeText(
+        logout.setOnClickListener {
+            editor.clear()
+            editor.putBoolean("connected",false)
+            editor.commit()
+            /*Toast.makeText(
                 this@HomeActivity, "logout",
                 Toast.LENGTH_SHORT
-            ).show()
+            ).show()*/
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
