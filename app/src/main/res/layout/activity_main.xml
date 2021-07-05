@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/numeroTele"
+        android:id="@+id/conseil_input"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_input"
@@ -52,7 +52,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numeroTele" />
+        app:layout_constraintTop_toBottomOf="@+id/conseil_input" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/conseil"

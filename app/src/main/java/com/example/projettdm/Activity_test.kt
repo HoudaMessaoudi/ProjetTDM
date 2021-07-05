@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.example.projettdm.data.Conseil
 import com.example.projettdm.data.Medecin
 import com.example.projettdm.retrofit.RetrofitService
+import com.example.projettdm.room.RoomService
 import kotlinx.android.synthetic.main.activity_test.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,11 +16,13 @@ class Activity_test : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
+        RoomService.context=this
         val medecin= intent.getSerializableExtra("Medecin") as Medecin
         button.setOnClickListener(){
             val contenu = input.text.toString()
             val id_client="60c75f6873f7264f583a26bc"
-            val conseil1 = Conseil(contenu,medecin._id,id_client)
+            val id_medecin= "60c773ec0d86f342a8a13650"
+            val conseil1 = Conseil(contenu,id_medecin,id_client)
             addconseil(conseil1)
         }
 

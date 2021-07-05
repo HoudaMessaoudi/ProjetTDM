@@ -8,7 +8,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.projettdm.R
 import com.example.projettdm.data.Medecin
 import com.example.projettdm.data.MedecinModel
-
+import com.example.projettdm.room.RoomService
 
 
 class medecinActivity : AppCompatActivity() {
@@ -16,6 +16,7 @@ class medecinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medecin)
+        RoomService.context=this@medecinActivity
         val medecin = intent.getSerializableExtra("Medecin") as Medecin
         vm.medecin = medecin
 

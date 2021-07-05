@@ -14,7 +14,7 @@
         android:id="@+id/imageView5"
         android:layout_width="401dp"
         android:layout_height="193dp"
-        android:src="@drawable/ic_header"
+        app:srcCompat="@drawable/ic_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:src="@drawable/ic_avatar"
+        app:srcCompat="@drawable/ic_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <EditText
-        android:id="@+id/numeroTele"
+        android:id="@+id/conseil_input"
         android:layout_width="288dp"
         android:layout_height="176dp"
         android:layout_marginTop="44dp"
@@ -82,8 +82,8 @@
         android:text="Reserver un rendez-vous"
         android:textColor="#FFFF"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/numeroTele"
-        app:layout_constraintStart_toStartOf="@+id/numeroTele"
-        app:layout_constraintTop_toBottomOf="@+id/numeroTele" />
+        app:layout_constraintEnd_toEndOf="@+id/conseil_input"
+        app:layout_constraintStart_toStartOf="@+id/conseil_input"
+        app:layout_constraintTop_toBottomOf="@+id/conseil_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
