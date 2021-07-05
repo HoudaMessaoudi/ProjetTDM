@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.projettdm.adapters.ViewPagerAdapter
 import com.example.projettdm.medecin.ListMedecinsFragment
 import com.example.projettdm.traitement.listTraitementsFragment
+import com.example.projettdm.randezVous.listRandezVousFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -79,7 +80,7 @@ class HomeActivity : AppCompatActivity() {
         val adapterm= ViewPagerAdapter(supportFragmentManager)
         adapterm.addFragment(ListMedecinsFragment(),"Medecins")
         adapterm.addFragment(listTraitementsFragment(),"Traitement")
-       // adapterm.addFragment(listRendezVousFragment(),"Randez-Vous")
+        adapterm.addFragment(listRandezVousFragment(),"Randez-Vous")
         viewPager.adapter=adapterm
         tabLayout.setupWithViewPager(viewPager)
     }

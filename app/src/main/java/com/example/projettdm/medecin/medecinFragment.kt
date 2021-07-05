@@ -7,12 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.projettdm.R
-import com.example.projettdm.data.Medecin
 import com.example.projettdm.data.MedecinModel
 import kotlinx.android.synthetic.main.fragment_medecin.*
 

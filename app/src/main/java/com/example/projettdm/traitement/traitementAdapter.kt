@@ -7,11 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projettdm.HomeActivity
 import com.example.projettdm.R
 import com.example.projettdm.data.Traitement
-
-import com.google.android.material.internal.ContextUtils.getActivity
 
 
 class TraitementAdapterval (context: Context, var data:List<Traitement>): RecyclerView.Adapter<MyViewHolder>() {
@@ -38,7 +35,7 @@ class TraitementAdapterval (context: Context, var data:List<Traitement>): Recycl
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val nom = view.findViewById<TextView>(R.id.nomTrait)
-    val dureTrait = view.findViewById<TextView>(R.id.dureTrait)
-    val foisTrait = view.findViewById<TextView>(R.id.foisTrait)
+    val dureTrait = view.findViewById<TextView>(R.id.nomedecin)
+    val foisTrait = view.findViewById<TextView>(R.id.dateRdv)
 
 }
