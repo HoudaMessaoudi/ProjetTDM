@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projettdm.HomeActivity
 import com.example.projettdm.R
 import com.example.projettdm.data.Traitement
-import com.example.projettdm.room.RoomService.context
+
 import com.google.android.material.internal.ContextUtils.getActivity
 
 
@@ -18,7 +18,7 @@ class TraitementAdapterval (context: Context, var data:List<Traitement>): Recycl
     @SuppressLint("RestrictedApi")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.traitment, parent, false)
+            LayoutInflater.from(parent.getContext()).inflate(R.layout.traitment, parent, false)
         )
 
     }
