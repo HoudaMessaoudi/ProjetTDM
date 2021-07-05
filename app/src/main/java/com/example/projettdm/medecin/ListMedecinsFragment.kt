@@ -27,11 +27,11 @@ class ListMedecinsFragment : Fragment() {
                 val data = response.body()
                 if (response.isSuccessful){
                     if (data!=null){
-                      progressBar.visibility = View.INVISIBLE
+                      progressBar2.visibility = View.INVISIBLE
 
 
-                        Huda.setLayoutManager(LinearLayoutManager(this@ListMedecinsFragment.activity));
-                        Huda.setAdapter(MyAdapter(requireContext(),data));
+                        frog.setLayoutManager(LinearLayoutManager(this@ListMedecinsFragment.activity));
+                        frog.setAdapter(MyAdapter(requireContext(),data));
                         /*for(item in data){
                             Toast.makeText(this@MainActivity,item.nom ,Toast.LENGTH_SHORT).show()
                         }*/
@@ -53,7 +53,7 @@ class ListMedecinsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        progressBar.visibility = View.VISIBLE
+        progressBar2.visibility = View.VISIBLE
         getmedecin()
 
     }
