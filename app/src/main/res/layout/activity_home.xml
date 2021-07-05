@@ -55,7 +55,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/mAddAlarmFab"
+            android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -79,10 +79,10 @@
             android:layout_marginTop="12dp"
             android:text="logout"
             android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/mAddAlarmFab"
+            app:layout_constraintEnd_toEndOf="@+id/logout"
             app:layout_constraintHorizontal_bias="0.437"
-            app:layout_constraintStart_toStartOf="@+id/mAddAlarmFab"
-            app:layout_constraintTop_toBottomOf="@+id/mAddAlarmFab" />
+            app:layout_constraintStart_toStartOf="@+id/logout"
+            app:layout_constraintTop_toBottomOf="@+id/logout" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -95,9 +95,9 @@
             android:backgroundTint="@color/white"
             android:contentDescription="@string/app_name"
             app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/mAddAlarmFab"
-            app:layout_constraintEnd_toStartOf="@+id/mAddAlarmFab"
-            app:layout_constraintTop_toTopOf="@+id/mAddAlarmFab"
+            app:layout_constraintBottom_toBottomOf="@+id/logout"
+            app:layout_constraintEnd_toStartOf="@+id/logout"
+            app:layout_constraintTop_toTopOf="@+id/logout"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_profile"
             app:tint="#38B6BC"

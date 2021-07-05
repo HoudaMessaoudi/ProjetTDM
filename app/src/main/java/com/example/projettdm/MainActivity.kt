@@ -25,14 +25,20 @@ class MainActivity : AppCompatActivity() {
         val pref = getSharedPreferences("db", Context.MODE_PRIVATE)
         val editor = pref.edit()
         val con = pref.getBoolean("connected",false)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        RoomService.context=this
-        val loginButton = findViewById(R.id.conseil) as Button
-        val num = findViewById(R.id.conseil_input) as EditText
-        val password = findViewById(R.id.motDePass) as EditText
-        loginButton.setOnClickListener {
-            /*if((password.text.toString()=="pass")&&(num.text.toString()=="07")){
+        if(con== true) {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+            RoomService.context = this
+            val loginButton = findViewById(R.id.conseil) as Button
+            val num = findViewById(R.id.conseil_input) as EditText
+            val password = findViewById(R.id.motDePass) as EditText
+            loginButton.setOnClickListener {
+                /*if((password.text.toString()=="pass")&&(num.text.toString()=="07")){
                 Toast.makeText(applicationContext, "success", Toast.LENGTH_SHORT).show()
                 val intent = Intent(context, HomeActivity::class.java)
                 //intent.putExtra("Medecin",)
@@ -40,8 +46,9 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(applicationContext, "wrong phone number or password", Toast.LENGTH_SHORT).show()
             }*/
-            val client = Client("","","",num.text.toString(),password.text.toString())
-            login(client,editor)
+                val client = Client("", "", "", num.text.toString(), password.text.toString())
+                login(client, editor)
+            }
         }
     }
 
