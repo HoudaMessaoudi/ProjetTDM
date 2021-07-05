@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         RoomService.context=this
         val loginButton = findViewById(R.id.conseil) as Button
-        val num = findViewById(R.id.numeroTele) as EditText
+        val num = findViewById(R.id.conseil_input) as EditText
         val password = findViewById(R.id.motDePass) as EditText
         loginButton.setOnClickListener {
             if((password.text.toString()=="pass")&&(num.text.toString()=="07")){

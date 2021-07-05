@@ -5,29 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.work.*
 import com.example.projettdm.R
+import com.example.projettdm.data.Conseil
+import com.example.projettdm.data.Medecin
+import com.example.projettdm.data.MedecinModel
+import com.example.projettdm.medecin.medecinActivity
+import com.example.projettdm.retrofit.RetrofitService
+import com.example.projettdm.room.RoomService
+import com.example.projettdm.room.SyncService
+import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.fragment_conseil.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [conseilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class conseilFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -38,23 +39,48 @@ class conseilFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_conseil, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment conseilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            conseilFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        RoomService.context=requireActivity()
+        val vm = ViewModelProvider(requireActivity()).get(MedecinModel::class.java)
+        val medecin= vm.medecin
+        button4.setOnClickListener(){
+            val contenu = conseil_input.text.toString()
+            val id_client="60c75f6873f7264f583a26bc"
+            val id_medecin= medecin._id
+            val conseil1 = Conseil(contenu,id_medecin,id_client)
+            addconseil(conseil1)
+
+        }
+        scheduleSycn()
+
+    }
+
+    private fun scheduleSycn() {
+        val constraints = Constraints.Builder().
+        setRequiredNetworkType(NetworkType.CONNECTED).
+            //    setRequiresBatteryNotLow(true).
+        build()
+        val req= OneTimeWorkRequest.Builder (SyncService::class.java).
+        setConstraints(constraints).addTag("id1").
+        build()
+        val workManager = WorkManager.getInstance(requireActivity())
+        workManager.enqueueUniqueWork("work", ExistingWorkPolicy.REPLACE,req)
+
+    }
+
+    private fun addconseil(conseil1: Conseil) {
+        val call = RetrofitService.endpoint.addconseil(conseil1)
+        call.enqueue(object: Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Toast.makeText(requireActivity(), "Conseil ajouté!", Toast.LENGTH_SHORT).show()
             }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Toast.makeText(requireActivity(), "Erreur", Toast.LENGTH_SHORT).show()
+                RoomService.appDatabase.getConseilDao().addConseil(conseil1)
+            }
+
+        })
     }
 }

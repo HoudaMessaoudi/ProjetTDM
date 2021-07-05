@@ -33,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
     private fun setUpTabs(){
         val adapterm= ViewPagerAdapter(supportFragmentManager)
         adapterm.addFragment(ListMedecinsFragment(),"Medecins")
-        adapterm.addFragment(listTraitementsFragment(),"Traitement")
+        //adapterm.addFragment(listTraitementsFragment(),"Traitement")
         viewPager.adapter=adapterm
         tabLayout.setupWithViewPager(viewPager)
     }

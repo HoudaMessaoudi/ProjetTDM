@@ -17,7 +17,7 @@ import com.example.projettdm.medecin.medecinActivity
 class MyAdapter(val context: Context, var data:List<Medecin>): RecyclerView.Adapter<MyViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.listitem, parent, false))
+        return MyViewHolder(LayoutInflater.from(this.context).inflate(R.layout.listitem, parent, false))
 
     }
 

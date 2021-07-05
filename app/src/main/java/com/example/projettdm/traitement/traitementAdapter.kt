@@ -1,25 +1,23 @@
 package com.example.projettdm.traitement
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
-import com.example.projettdm.data.Traitement
+import com.example.projettdm.HomeActivity
 import com.example.projettdm.R
-import com.example.projettdm.medecin.medecinActivity
-import com.example.projettdm.room.RoomService.context
+import com.example.projettdm.data.Traitement
+import com.google.android.material.internal.ContextUtils.getActivity
 
 
 class TraitementAdapterval (context: Context, var data:List<Traitement>): RecyclerView.Adapter<MyViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): com.example.projettdm.traitement.MyViewHolder {
-        return com.example.projettdm.traitement.MyViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.traitment, parent, false)
+    @SuppressLint("RestrictedApi")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        return MyViewHolder(
+            LayoutInflater.from(HomeActivity()).inflate(R.layout.listitem, parent, false)
         )
 
     }
