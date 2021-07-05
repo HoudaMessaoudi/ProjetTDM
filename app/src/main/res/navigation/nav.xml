@@ -9,7 +9,11 @@
         android:id="@+id/conseilFragment"
         android:name="com.example.projettdm.conseil.conseilFragment"
         android:label="fragment_conseil"
-        tools:layout="@layout/fragment_conseil" />
+        tools:layout="@layout/fragment_conseil" >
+        <action
+            android:id="@+id/action_conseilFragment_to_medecinFragment"
+            app:destination="@id/medecinFragment" />
+    </fragment>
     <fragment
         android:id="@+id/medecinFragment"
         android:name="com.example.projettdm.medecin.medecinFragment"
@@ -26,5 +30,9 @@
         android:id="@+id/randezVousFragment"
         android:name="com.example.projettdm.medecin.randezVousFragment"
         android:label="fragment_randez_vous"
-        tools:layout="@layout/fragment_randez_vous" />
+        tools:layout="@layout/fragment_randez_vous" >
+        <action
+            android:id="@+id/action_randezVousFragment_to_medecinFragment"
+            app:destination="@id/medecinFragment" />
+    </fragment>
 </navigation>
