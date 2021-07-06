@@ -29,7 +29,7 @@ class MyAdapter(val context: Context, var data:List<Medecin>): RecyclerView.Adap
         holder.prenom.text = data[position].prenom
         holder.num.text = data[position].num.toString()
         holder.spec.text = data[position].speciality
-        Glide.with(context).load("http://1ab586a03542.ngrok.io/"+data[position].picture).into(holder.img)
+        Glide.with(context).load("http://59816cfeba7b.ngrok.io/"+data[position].picture).into(holder.img)
         //holder.img.setImageResource(data[position].img)
         holder.itemView.setOnClickListener{
             val intent = Intent(context, medecinActivity::class.java)

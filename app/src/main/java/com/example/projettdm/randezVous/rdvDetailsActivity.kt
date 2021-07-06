@@ -25,7 +25,7 @@ class rdvDetailsActivity : AppCompatActivity() {
         val date=randezVous.date
         nmedecin.text="Dr"+nomDoc
         pmedecin.text=prenomDoc
-        dtrdv.text=date.dateToString("hh:mm a E dd-MMM")
+        dtrdv.text=date //.dateToString("hh:mm a E dd-MMM")
 
         var gson = Gson()
         val qr_quore=gson.toJson(randezVous)

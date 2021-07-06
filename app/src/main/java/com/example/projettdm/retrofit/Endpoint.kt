@@ -2,10 +2,7 @@ package com.example.projettdm.retrofit
 
 import com.example.projettdm.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 import java.util.*
 
 interface Endpoint {
@@ -28,6 +25,8 @@ interface Endpoint {
     @POST("api/client/auth")
     fun login(@Body client:Client):Call<Client>
 
-    @GET("api/edt")
-    fun getedv(@Query("id") id_medecin:String):Call<Array<Edt>>
+    @GET("api/edt/{id}")
+    fun getedv(@Path("id") id_medecin:String):Call<Array<Edt>>
+    @POST("api/rdv")
+    fun addRdv(@Body rdv:RandezVous):Call<String>
 }

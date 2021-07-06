@@ -1,30 +1,29 @@
 package com.example.projettdm.medecin
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projettdm.MyAdapter
 import com.example.projettdm.R
 import com.example.projettdm.data.Edt
-import com.example.projettdm.data.Medecin
 import com.example.projettdm.data.MedecinModel
-import com.example.projettdm.randezVous.dateToString
+import com.example.projettdm.data.RandezVous
 import com.example.projettdm.retrofit.RetrofitService
-import kotlinx.android.synthetic.main.fragment_list_medecins.*
 import kotlinx.android.synthetic.main.fragment_randez_vous.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -41,17 +40,35 @@ class randezVousFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         val vm = ViewModelProvider(requireActivity()).get(MedecinModel::class.java)
-        getmedecinedt(vm.medecin._id)
+        val medecin = vm.medecin
+        val id_medecin = medecin._id
+        Log.d("id_medecin",id_medecin)
+        val nom_medecin = medecin.nom
+        val prenom_medecin = medecin.prenom
+        val id_client = "60c75f6873f7264f583a26bc"
+        getmedecinedt(id_medecin)
 
         prendreRanderVous.setOnClickListener{
             //save randez-vous
-                v->
-
-            v.findNavController().navigate(R.id.action_randezVousFragment_to_medecinFragment)
+            val dateInString= spinner_sample.selectedItem.toString()
+            Log.d("date",dateInString)
+            /*val formatter = SimpleDateFormat("dd-M-yyyy hh:mm:ss a", Locale.ENGLISH)
+            formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+            val date = formatter.parse(dateInString)*/
+            val rdv = RandezVous(id_medecin,nom_medecin,prenom_medecin,id_client,dateInString)
+            addrdv(rdv)
+        //v->v.findNavController().navigate(R.id.action_randezVousFragment_to_medecinFragment)
 
         }
     }
+
     private fun getmedecinedt(id_medecin : String)  {
         val call = RetrofitService.endpoint.getedv(id_medecin)
         call.enqueue(object: Callback<Array<Edt>> {
@@ -103,5 +120,20 @@ class randezVousFragment : Fragment() {
         })
     }
 
+    private fun addrdv(rdv: RandezVous) {
+        val call = RetrofitService.endpoint.addRdv(rdv)
+        call.enqueue(object: Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Toast.makeText(requireActivity(), "Randez-vous ajouté!", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Toast.makeText(requireActivity(), "Erreur", Toast.LENGTH_SHORT).show()
+
+            }
+
+        })
+
+    }
 
 }
