@@ -47,7 +47,7 @@ class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 }
 
-private fun Date.dateToString(format: String): String {
+fun Date.dateToString(format: String): String {
     //simple date formatter
     val dateFormatter = SimpleDateFormat(format, Locale.getDefault())
 

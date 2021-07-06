@@ -5,6 +5,8 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
+import java.util.*
 
 interface Endpoint {
 
@@ -25,4 +27,7 @@ interface Endpoint {
 
     @POST("api/client/auth")
     fun login(@Body client:Client):Call<Client>
+
+    @GET("api/edt")
+    fun getedv(@Query("id") id_medecin:String):Call<Array<Edt>>
 }
