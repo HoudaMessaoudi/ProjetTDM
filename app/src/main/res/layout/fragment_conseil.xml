@@ -9,15 +9,14 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="401dp"
         android:layout_height="193dp"
-        app:srcCompat="@drawable/ic_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_header" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -29,20 +28,6 @@
         app:srcCompat="@drawable/ic_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:text="Dr M.Boujabi"
-        android:textColor="#FFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView13"

@@ -95,38 +95,6 @@
             app:layout_constraintTop_toBottomOf="@+id/logout" />
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/mAddPersonFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/app_name"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/logout"
-            app:layout_constraintEnd_toStartOf="@+id/logout"
-            app:layout_constraintTop_toTopOf="@+id/logout"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_profile"
-            app:tint="#38B6BC"
-            tools:ignore="VectorDrawableCompat" />
-
-        <TextView
-            android:id="@+id/addPersonActionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/addAlarmActionText"
-            app:layout_constraintEnd_toEndOf="@+id/mAddPersonFab"
-            app:layout_constraintHorizontal_bias="0.466"
-            app:layout_constraintStart_toStartOf="@+id/mAddPersonFab"
-            app:layout_constraintTop_toTopOf="@+id/addAlarmActionText" />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout

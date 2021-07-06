@@ -29,38 +29,31 @@ class HomeActivity : AppCompatActivity() {
 
 
         logout.setVisibility(View.INVISIBLE);
-        mAddPersonFab.setVisibility(View.INVISIBLE);
+
         addAlarmActionText.setVisibility(View.INVISIBLE);
-        addPersonActionText.setVisibility(View.INVISIBLE);
+
         var isAllFabsVisible = false;
 
         mAddFab.setOnClickListener {
             if (!isAllFabsVisible) {
 
                 logout.visibility = View.VISIBLE
-                mAddPersonFab.visibility = View.VISIBLE
+
                 addAlarmActionText.visibility = View.VISIBLE
-                addPersonActionText.visibility = View.VISIBLE
+
 
                 isAllFabsVisible = true
             } else {
 
                 logout.visibility = View.INVISIBLE
-                mAddPersonFab.visibility = View.INVISIBLE
+
                 addAlarmActionText.visibility = View.INVISIBLE
-                addPersonActionText.visibility = View.INVISIBLE
+
                 isAllFabsVisible = false
             }
 
         }
 
-        mAddPersonFab.setOnClickListener {
-
-            Toast.makeText(
-                this@HomeActivity, "Profile picked",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
 
         logout.setOnClickListener {
             editor.clear()
