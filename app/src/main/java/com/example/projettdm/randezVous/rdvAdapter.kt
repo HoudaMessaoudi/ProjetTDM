@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projettdm.R
 import com.example.projettdm.data.RandezVous
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -28,7 +29,7 @@ class rdvAdapter (val context: Context, var data:List<RandezVous>): RecyclerView
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: com.example.projettdm.randezVous.MyViewHolder, position: Int) {
-        holder.date.text = data[position].date.dateToString("hh:mm a E dd-MMM")
+        holder.date.text = data[position].date //.dateToString("hh:mm a E dd-MMM")
         holder.nom.text = data[position].nom_medecin+" "+data[position].prenom_medecin
 
         holder.itemView.setOnClickListener{
